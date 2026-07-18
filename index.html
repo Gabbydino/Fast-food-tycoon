@@ -793,7 +793,7 @@ function comprarIngrediente(id, qtd){
 function melhorarLoja(lojaId, campo){
   const loja = STATE.lojas.find(l=>l.id===lojaId);
   const custos = {limpeza:0, decoracao:150, capacidade:500, eficiencia:200};
-  const custo = custos[campo]||100;
+  const custo = custos[campo] ?? 100;
   if(STATE.empresa.caixa<custo) return;
   STATE.empresa.caixa -= custo;
   if(campo==="capacidade") loja.capacidade += 10;
